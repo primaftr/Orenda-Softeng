@@ -1,11 +1,16 @@
+import { Tasks } from "../entity/Tasks";
+import { User } from "../entity/User";
 import { DataSource } from "typeorm";
 
-const url = "mysql://root@localhost:3306/orenda_softeng";
+console.log(process.env.DATABASE_URL);
+const url = process.env.DATABASE_URL?.toString();
+
 export const dataSource = new DataSource({
   type: "mysql",
   url,
   logging: true,
   // synchronize: true,
   migrations: ["dist/migrations/*.js"],
-  entities: ["dist/entity/*.js"],
+  entities: [User, Tasks],
+  migrationsRun: true,
 });

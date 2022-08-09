@@ -11,6 +11,9 @@ const userRepository = dataSource.getRepository(User);
 
 router.get("/api/task/common", async (req: Request, res: Response) => {
   const { user: userReq } = req.body;
+  if (!userReq) {
+    return res.status(400).send("Invalid request!");
+  }
   let error;
   if (userReq.length !== 2) {
     return res.status(400).send("Max input email is 2!");

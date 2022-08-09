@@ -11,6 +11,9 @@ const router = express.Router();
 
 router.post("/api/assign", async (req: Request, res: Response) => {
   const { user: userReq, task: taskReq } = req.body;
+  if (!userReq || !taskReq) {
+    return res.status(400).send("Invalid request!");
+  }
   const { errorMessage } = validateEmail(userReq);
   if (errorMessage) {
     return res.status(400).send(errorMessage);

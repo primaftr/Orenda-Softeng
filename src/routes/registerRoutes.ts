@@ -12,6 +12,9 @@ const router = express.Router();
 
 router.post("/api/register", async (req: Request, res: Response) => {
   const { Users } = req.body;
+  if (!Users) {
+    return res.status(400).send("Invalid request!");
+  }
   const normalizedEmail: Users = Users.map((email: string) => ({ email }));
   let error;
 
