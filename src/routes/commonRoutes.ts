@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import { In } from "typeorm";
 import { dataSource } from "../config/ormconfig";
-import { Tasks } from "../entity/Task";
+import { Tasks } from "../entity/Tasks";
 import { User } from "../entity/User";
 import { validateEmail } from "../utils/validate";
 

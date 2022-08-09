@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import { dataSource } from "../config/ormconfig";
-import { Tasks } from "../entity/Task";
+import { Tasks } from "../entity/Tasks";
 import { User } from "../entity/User";
 import errorHandling from "../utils/errorHandling";
 import { validateEmail } from "../utils/validate";
