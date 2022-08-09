@@ -34,7 +34,7 @@ Start the server
 
 Endpoint to register one or more users.
 
-```http
+```
   POST /api/register
 ```
 
@@ -48,7 +48,7 @@ Endpoint to register one or more users.
 
 Endpoint to assign task for each user.
 
-```http
+```
   GET /api/unassign
 ```
 
@@ -62,7 +62,7 @@ Endpoint to assign task for each user.
 
 Endpoint to remove task for each user.
 
-```http
+```
   GET /api/assign
 ```
 
@@ -76,16 +76,16 @@ Endpoint to remove task for each user.
 
 Endpoint to check common task between users.
 
-```http
+```
   GET /api/tasks/common
 ```
 
 | Body                                                    |
 | :------------------------------------------------------ |
-| ` { user:[“example1@email.com”,”example2@email.com”] }` |
+| ` { user:[“example1@email.com”,”example2@email.com”] }`|
 
 #### Response : **200**
 
-```json
+```
 { "tasks": [“Buy eggs”, “Buy milk”]}
 ```
