@@ -18,7 +18,7 @@ dataSource
     const app = express();
     app.use(cors({ origin: corsOrigin }));
 
-    app.use(function (req, res, next) {
+    app.use((req, res, next) => {
       res.set("content-type", "application/json");
       next();
     });

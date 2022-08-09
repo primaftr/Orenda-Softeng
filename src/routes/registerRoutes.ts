@@ -1,4 +1,5 @@
 import express, { Request, Response } from "express";
+import errorHandling from "src/utils/errorHandling";
 import { dataSource } from "../config/ormconfig";
 import { User } from "../entity/User";
 import { validateEmail } from "../utils/validate";
@@ -33,15 +34,8 @@ router.post("/api/register", async (req: Request, res: Response) => {
       .values(normalizedEmail)
       .execute();
   } catch (err: any) {
-    console.log(err);
-
-    if (err.errno == "1062") {
-      return res.status(409).send("Email already exist!");
-    } else {
-      console.log(err);
-
-      return res.status(400).send(error);
-    }
+    const { status, message } = errorHandling(err, "email");
+    return res.status(status).send(message);
   }
   return res.status(204).send();
 });
