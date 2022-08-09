@@ -39,7 +39,6 @@ router.get("/api/task/common", async (req: Request, res: Response) => {
       .leftJoinAndSelect("task.email", "email")
       .where("email IN (:...email)", { email: userReq })
       .getMany();
-    console.log(common);
     let tasks: any = [];
     for (let filterCommon of common) {
       if (filterCommon.email?.length == userReq.length) {
