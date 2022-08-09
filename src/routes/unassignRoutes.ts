@@ -20,7 +20,6 @@ router.delete("/api/unassign", async (req: Request, res: Response) => {
   }
 
   const findUser = await userRepository.find({ where: { email: userReq } });
-  console.log(findUser);
 
   if (findUser.length == 0) {
     return res.status(400).send("Email not found!");
